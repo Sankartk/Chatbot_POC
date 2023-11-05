@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <!-- Include AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Include your styles.css file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-controller="ChatController">
+
+<!-- Your chat application container -->
+<div class="chat-container">
+    <div class="messages">
+        <div class="message" ng-repeat="message in chatMessages">
+            <span class="username">{{ message.username }}:</span>
+            <span class="text">{{ message.text }}</span>
+        </div>
+    </div>
+    <div class="input-group">
+        <input type="text" ng-model="newMessage" id="newMessage" name="newMessage" placeholder="Type a message..." ng-keypress="checkIfEnterKey($event)">
+        <button ng-click="sendMessage()">Send</button>
+    </div>
+</div>
+
+<div>
+    <input type="text" ng-model="departmentName" id="departmentName" name="departmentName" placeholder="Enter department name...">
+    <button ng-click="getEmployeesByDepartment(departmentName)">List Employees</button>
+</div>
+
+<!-- Display the list of employees in a table format -->
+<div>
+    <h3>Employees in {{ departmentName }} Department:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="employee in employees">
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.position }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Include your app.js file -->
+<script src="app.js"></script>
+
+</body>
+</html>
