@@ -1,7 +1,7 @@
 from firebase_admin import db
 from pydantic import BaseModel
 
-# Define your data model as Pydantic BaseModel
+# Defining data model as Pydantic BaseModel
 class ChatLog(BaseModel):
     user_message: str
     bot_response: str

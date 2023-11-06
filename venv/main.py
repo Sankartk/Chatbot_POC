@@ -4,7 +4,7 @@ from pydantic import BaseModel
 import crud
 from firebaseint import get_firebase_app
 
-# Initialize Firebase as soon as possible
+# Initialize Firebase
 get_firebase_app()
 
 class Message(BaseModel):
